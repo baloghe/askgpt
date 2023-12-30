@@ -23,6 +23,11 @@ const openai = new OpenAI({
 // listening for port
 app.listen(port, ()=> console.log(`Server is running on port ${port}` ));
 
+// GET request qould serve some info
+app.get('/', (req, res) => {
+	res.send(`This is the backend Node server for <<askgpt>> on port ${port}`);
+});
+
 // API request for ChatGPT
 app.post("/cgpt", async (req, res) => {
   const {messages, settings} = req.body;
