@@ -14,7 +14,8 @@ export default function App({preSet}){
 	const [state, setState] = useState('LOGIN');//LOGIN
 	const [chatState, setChatState] = useState('TYPE');
 	
-	const HTTP_CGPT = `${Backend_Url}:${Backend_Port}/cgpt`;
+	//const HTTP_CGPT = `${Backend_Url}:${Backend_Port}/cgpt`;
+	const HTTP_CGPT = `${Backend_Url}/cgpt`;
   
 	let timerID = null;
 	let newMsgs = null;
