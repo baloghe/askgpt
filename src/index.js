@@ -6,7 +6,6 @@ import App from './component/App';
 import {preSet} from "./logic/preset.js";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-const myenvvar=process.env.REACT_APP_MY_ENV_VAR;
 
 root.render(
   <React.StrictMode>
