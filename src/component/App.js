@@ -42,8 +42,9 @@ export default function App({preSet}){
 							],
 				"settings": {model: settings.ChatGPT.model, temperature: settings.ChatGPT.temperature}
 		};
-		/*
+		
 		console.log(`HTTP_CGPT = ${HTTP_CGPT}`);
+		/*
 		console.log(`request = ${request}`);
 		*/
 		axios
