@@ -10,7 +10,7 @@ export default function SettingsPane({actSettings, changeSettings}){
 	return (
   	<div>
     <h2>Settings</h2>
-      <button onClick={submitChange}>Submit</button>
+	<button onClick={submitChange}>Submit</button>
     </div>
   );
 }

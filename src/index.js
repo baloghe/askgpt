@@ -10,7 +10,6 @@ const myenvvar=process.env.REACT_APP_MY_ENV_VAR;
 
 root.render(
   <React.StrictMode>
-	<p>var: {myenvvar}</p>
     <App preSet={preSet} />
   </React.StrictMode>
 );
