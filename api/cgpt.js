@@ -17,6 +17,9 @@ async function askAI(req, res){
 		temperature:settings.temperature,
 		messages: 	messages
 	  });
+	  
+	res.statusCode = 200;
+	res.setHeader("Content-Type", "application/json");
 	
     res.json(completion.choices[0].message.content);
 }

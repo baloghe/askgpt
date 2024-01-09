@@ -4,8 +4,8 @@ import LoginPane from "./LoginPane.js";
 import SettingsPane from "./SettingsPane.js";
 import ChatPane from "./ChatPane.js";
 
-const Backend_Url	= process.env.REACT_APP_BACKEND_URL;
-/*const Backend_Port	= process.env.REACT_APP_BACKEND_PORT;*/
+/*const Backend_Url	= process.env.REACT_APP_BACKEND_URL;
+const Backend_Port	= process.env.REACT_APP_BACKEND_PORT;*/
 const ChatGPT_Key	= null; //needed for askLLM_fromFrontend but would expose key in static/bundle.js
 
 export default function App({preSet}){
@@ -14,8 +14,7 @@ export default function App({preSet}){
 	const [state, setState] = useState('LOGIN');//LOGIN
 	const [chatState, setChatState] = useState('TYPE');
 	
-	//const HTTP_CGPT = `${Backend_Url}:${Backend_Port}/cgpt`;
-	const HTTP_CGPT = `${Backend_Url}/cgpt`;
+	const HTTP_CGPT = `/api/cgpt`;
   
 	let timerID = null;
 	let newMsgs = null;
