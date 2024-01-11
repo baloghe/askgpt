@@ -20,12 +20,13 @@ export default function App({preSet}){
 	let newMsgs = null;
   
 	const changeSettings = d => {
-		console.log(`App :: settings changed`);
+		setSettings(d);
+		//console.log(`App :: settings changed: ${JSON.stringify(d)}`);
 		setState('CHAT');
 	};
 	
 	const loginDone = () => {
-		console.log(`App :: login successful`);
+		//console.log(`App :: login successful`);
 		setState('SETTINGS');
 	};
 	
@@ -43,8 +44,8 @@ export default function App({preSet}){
 				"settings": {model: settings.ChatGPT.model, temperature: settings.ChatGPT.temperature}
 		};
 		
-		console.log(`HTTP_CGPT = ${HTTP_CGPT}`);
 		/*
+		console.log(`HTTP_CGPT = ${HTTP_CGPT}`);
 		console.log(`request = ${request}`);
 		*/
 		axios
@@ -95,7 +96,7 @@ export default function App({preSet}){
 	const sendNewMessage = async (msg) => {
 		newMsgs = [...messages, msg];
 		setMessages(newMsgs);
-		console.log('Ask some GPT');
+		//console.log('Ask some GPT');
 		setChatState('WAIT');
 		await askLLM(newMsgs); ////stop here until we get an answer
 		setChatState('TYPE');

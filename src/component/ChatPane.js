@@ -11,11 +11,12 @@ export default function ChatPane({actMessages, sendNewMessage, chatState}){
 			sender: 'user'
 		};
 		sendNewMessage(mev); //so we go back to App with our local variable
-		console.log(`ChatPane :: Msg sent: ${userMsg}`);
+		//console.log(`ChatPane :: Msg sent: ${userMsg}`);
 	};
 	
 	return (
 		<div>
+			<h3>Chat started...</h3>
 			{actMessages.map((m,i)=>(<p key={i}><b>{m.sender}:</b>{m.message}</p>))}
 			{chatState==='WAIT' ? <p>Waiting for answer...</p>
 				:<form onSubmit={sendMessage}>

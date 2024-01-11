@@ -13,7 +13,7 @@ async function askAI(req, res){
 	
 	const completion = await openai.chat.completions.create({
 		model: 		settings.model,
-		max_tokens: 512,
+		max_tokens: settings.max_tokens,
 		temperature:settings.temperature,
 		messages: 	messages
 	  });

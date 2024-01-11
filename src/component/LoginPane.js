@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
+import axios from "axios";
 import sha256 from 'sha256';
-
-const ENCRYPTED_USER	= process.env.REACT_APP_ENCRYPTED_USER;
-const ENCRYPTED_PW	= process.env.REACT_APP_ENCRYPTED_PW;
 
 export default function LoginPane({loginSuccess}){
 	const [state, setState] = useState('ENTER');
@@ -12,15 +10,20 @@ export default function LoginPane({loginSuccess}){
 	const login = (e) => {
 		e.preventDefault();
 		
-		let encUser=sha256(user);
-		let encPw=sha256(pw);
+		const request = {encUser: sha256(user), encPw: sha256(pw)};
 		
-		if(encUser===ENCRYPTED_USER && encPw===ENCRYPTED_PW){
-			setState('OK');
-			loginSuccess();
-		} else {
-			setState('ERROR');
-		}
+		axios
+		.post("api/auth", request)
+		.then((data) => {
+			//console.log('Received ::');
+			//console.log(data);
+			if(data.data){
+				setState('OK');
+				loginSuccess();
+			} else {
+				setState('ERROR');
+			}
+		});
 	};
 
 	return (
